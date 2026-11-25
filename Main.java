@@ -1,6 +1,3 @@
-
-package QUIZ.Stu_qz;
-
 import java.util.Scanner;
 
 public class Main {
