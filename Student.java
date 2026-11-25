@@ -1,6 +1,3 @@
-
-package QUIZ.Stu_qz;
-
 public class Student {
 
     // Private Attributes
