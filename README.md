@@ -1,53 +1,53 @@
-# نظام إدارة الطلاب
+# Student Management System
 
-برنامج Java بسيط لإدخال بيانات طالب واحد، وحساب متوسط ثلاث علامات، ثم عرض النتيجة الأكاديمية `PASS` أو `FAIL`.
+A simple Java console application that collects one student's details, calculates the average of three marks, and displays an academic result: `PASS` or `FAIL`.
 
-## المتطلبات
+## Requirements
 
-- تثبيت JDK يتضمن `javac` و`java`.
-- تم التحقق من المشروع باستخدام Temurin OpenJDK 27.0.1.0.2.
+- A JDK installation that includes `javac` and `java`.
+- Verified with Temurin OpenJDK 27.0.1.0.2.
 
-## التشغيل
+## Run the program
 
-من مجلد المشروع، نفّذ:
+From the project directory, compile both source files and start the application:
 
 ```bash
 javac Main.java Student.java
 java Main
 ```
 
-أدخل رقم التسجيل والاسم والعمر، ثم أدخل العلامات الثلاث. يقبل البرنامج العلامات من `0` إلى `100`، ويعيد طلب العلامة إذا كانت خارج هذا النطاق. يُعرض المتوسط بمنزلتين عشريتين، ويكون النجاح عند متوسط `50` أو أكثر.
+Enter the registration number, name, age, and three marks. Marks must be between `0` and `100`, inclusive. An out-of-range mark is rejected and requested again. The program displays the average to two decimal places and reports `PASS` when the average is at least `50`.
 
-## السيناريوهات التي جُرّبت
+## Scenarios tested
 
-| السيناريو | العلامات | المتوسط | النتيجة |
+| Scenario | Marks | Average | Result |
 |---|---:|---:|---|
-| نجاح اعتيادي | 80، 75، 90 | 81.67 | PASS |
-| رسوب | 40، 35، 45 | 40.00 | FAIL |
-| حد النجاح | 50، 50، 50 | 50.00 | PASS |
-| رفض علامة خارج النطاق ثم إعادة إدخالها | 120 ثم 0، 100، 75 | 58.33 | PASS |
+| Typical pass | 80, 75, 90 | 81.67 | PASS |
+| Fail | 40, 35, 45 | 40.00 | FAIL |
+| Exact pass threshold | 50, 50, 50 | 50.00 | PASS |
+| Reject an out-of-range mark, then re-enter | 120, then 0, 100, 75 | 58.33 | PASS |
 
-شُغّلت الحالات فعلياً بعد ترجمة الملفين بنجاح. لقطات الطرفية التالية تعرض الإدخالات والمخرجات الناتجة عن كل تشغيل.
+All scenarios were run after compiling the source files successfully. The screenshots below show the inputs and console output from each run.
 
-## لقطات التشغيل
+## Screenshots
 
-### نجاح اعتيادي
+### Typical pass
 
-![لقطة تشغيل: نجاح اعتيادي](screenshots/pass-standard.png)
+![Typical pass output](screenshots/pass-standard.png)
 
-### رسوب
+### Fail
 
-![لقطة تشغيل: رسوب](screenshots/fail-standard.png)
+![Fail output](screenshots/fail-standard.png)
 
-### علامة النجاح بالضبط
+### Exact pass threshold
 
-![لقطة تشغيل: المتوسط 50 يحقق النجاح](screenshots/pass-boundary.png)
+![Average of 50.00 meets the pass threshold](screenshots/pass-boundary.png)
 
-### التحقق من نطاق العلامة
+### Mark range validation
 
-![لقطة تشغيل: رفض 120 ثم قبول العلامات الصحيحة](screenshots/mark-validation.png)
+![Out-of-range mark is rejected and valid marks are accepted](screenshots/mark-validation.png)
 
-## ملاحظات
+## Notes
 
-- كل تشغيل يعالج طالباً واحداً فقط.
-- يتحقق البرنامج من نطاق العلامات، لكنه لا يتحقق من العمر أو من أن الإدخال رقمي؛ لذلك قد يتوقف عند إدخال نص بدلاً من رقم للعمر أو العلامة.
+- Each program run handles one student.
+- Marks are checked against the `0` to `100` range. Age is not validated, and non-numeric input for age or marks can stop the program.
